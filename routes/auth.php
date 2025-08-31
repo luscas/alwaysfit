@@ -18,7 +18,7 @@ Route::middleware('guest')->group(function () {
         ->name('login.store');
 });
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
+Route::middleware('auth')->group(function () {
+    Route::match(['post','get'], 'logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
