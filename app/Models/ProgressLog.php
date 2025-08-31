@@ -30,6 +30,6 @@ class ProgressLog extends Model
 
     public function scopePending($query)
     {
-        return $query->where('is_done', false);
+        return $query->where('status', 'skipped');
     }
 }

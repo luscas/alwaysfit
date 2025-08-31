@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class NutritionMealItem extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'nutrition_meal_id',
         'food',
@@ -18,11 +22,10 @@ class NutritionMealItem extends Model
         'calories',
     ];
 
-    public $with = [
-        'meal'
-    ];
+    protected $with = ['meal'];
 
-    public function meal() {
+    public function meal()
+    {
         return $this->belongsTo(NutritionMeal::class);
     }
 }
