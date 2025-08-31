@@ -1,23 +1,56 @@
-<script setup lang="ts">
-import UserLayout from '@/layouts/UserLayout.vue';
-import { Head, usePage } from '@inertiajs/vue3';
+<script setup>
+// ** Inertia
+import { Link } from "@inertiajs/vue3";
 
-const page = usePage();
+// ** Layouts
+import UserLayout from "@/layouts/UserLayout.vue";
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-}
+// ** Components
+import DashboardOption from "@/components/Dashboard/Option.vue";
 
-const user: User = (page.props.auth as any).user as User;
+// ** Assets
+import imageTraining from "~/assets/uploads/1.png";
+import imageFitness from "~/assets/uploads/2.png";
+import imageProgress from "~/assets/uploads/3.png";
+
+const dashboardOptions = [
+    {
+        url: "/trainings",
+        title: "Treinos",
+        image: imageTraining,
+    },
+    {
+        url: "/nutrition-plans",
+        title: "Plano nutricional",
+        image: imageFitness,
+    },
+    {
+        url: "/progress",
+        title: "Progresso",
+        image: imageProgress,
+    },
+];
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <UserLayout title="Dashboard">
+        <main class="container px-6 py-10 xl:px-[135px] xl:py-[72px] mx-auto">
+            <div class="text-[#4D4B5C]">
+                Olá <b>{{ $page.props.auth.user.name }}</b
+                >! Seja bem-vindo!
+            </div>
 
-    <UserLayout>
-        <h1>Olá, {{ user.name }}</h1>
-        <pre>{{ JSON.stringify($page.props, null, 2) }}</pre>
+            <div class="grid grid-cols-12 mt-8 gap-9">
+                <Link
+                    :as="DashboardOption"
+                    :href="option.url"
+                    v-for="option in dashboardOptions"
+                    :key="option.url"
+                    class="col-span-12 md:col-span-4"
+                    :title="option.title"
+                    :image="option.image"
+                />
+            </div>
+        </main>
     </UserLayout>
 </template>
