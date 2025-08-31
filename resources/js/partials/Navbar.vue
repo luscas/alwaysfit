@@ -32,7 +32,7 @@ const props = defineProps(['title', 'redirectBack']);
                 </div>
             </div>
 
-            <Link href="/auth/logout" method="post" as="button" class="text-primary flex items-center gap-2 font-medium">
+            <Link href="/logout" method="POST" as="button" class="flex cursor-pointer items-center gap-2 font-medium text-primary">
                 <img :src="logout" alt="Logout Icon" width="24" height="22" draggable="false" />
                 Sair
             </Link>
