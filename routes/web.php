@@ -13,6 +13,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/{training}', [TrainingController::class, 'show'])->name('trainings.detail');
         Route::post('/{training}/log', [TrainingController::class, 'log'])->name('trainings.log');
     });
+
+    Route::group(['prefix' => '/nutrition-plans'], function () {
+        Route::get('/', [NutritionPlanController::class, 'index'])->name('nutritionPlans');
+        Route::get('/{nutritionPlan}', [NutritionPlanController::class, 'show'])->name('nutritionPlans.detail');
+    });
 });
 
 
