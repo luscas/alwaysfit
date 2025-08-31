@@ -5,7 +5,6 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\Exercise;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use PHPUnit\Framework\Attributes\Test;
 
 class ExerciseTest extends TestCase
 {
