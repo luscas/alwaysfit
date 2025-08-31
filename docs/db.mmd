@@ -1,0 +1,92 @@
+erDiagram
+
+    USERS ||--o{ TRAININGS : "tem"
+    USERS ||--o{ PROGRESS_LOGS : "gera"
+    USERS ||--o{ NUTRITION_PLANS : "possui"
+
+    TRAININGS ||--o{ PROGRESS_LOGS : "registrado em"
+    TRAININGS }o--|| EXERCISES : "referencia"
+
+    NUTRITION_PLANS ||--o{ NUTRITION_MEALS : "inclui"
+    NUTRITION_MEALS ||--o{ NUTRITION_MEAL_ITEMS : "composto por"
+
+    USERS {
+        bigint id PK
+        string name
+        string email
+    }
+
+    EXERCISES {
+        bigint id PK
+        string image
+        string title
+        text description
+        datetime created_at
+        datetime updated_at
+    }
+
+    TRAININGS {
+        bigint id PK
+        bigint user_id FK
+        bigint exercise_id FK
+        string image
+        string title
+        text description
+        enum level
+        tinyint target_per_week
+        boolean is_done
+        datetime created_at
+        datetime updated_at
+    }
+
+    PROGRESS_LOGS {
+        bigint id PK
+        bigint user_id FK
+        bigint training_id FK
+        datetime performed_at
+        enum status
+        datetime created_at
+        datetime updated_at
+    }
+
+    NUTRITION_PLANS {
+        bigint id PK
+        bigint user_id FK
+        string title
+        text description
+        date start_date
+        date end_date
+        int calories
+        smallint protein_g
+        smallint carbs_g
+        smallint fat_g
+        datetime created_at
+        datetime updated_at
+    }
+
+    NUTRITION_MEALS {
+        bigint id PK
+        bigint nutrition_plan_id FK
+        enum type
+        tinyint order
+        string title
+        int calories
+        time scheduled_time
+        datetime created_at
+        datetime updated_at
+    }
+
+    NUTRITION_MEAL_ITEMS {
+        bigint id PK
+        bigint nutrition_meal_id FK
+        string food
+        text description
+        decimal quantity
+        string unit
+        smallint protein_g
+        smallint carbs_g
+        smallint fat_g
+        smallint calories
+        datetime created_at
+        datetime updated_at
+    }
