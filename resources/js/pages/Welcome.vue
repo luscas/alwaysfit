@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/vue3';
 
 <template>
     <Head title="Welcome" />
-    <div>
+    <div class="bg-porcelain">
         <h1>Welcome to the Jungle!</h1>
     </div>
 </template>
