@@ -1,6 +1,6 @@
 <script setup>
 // ** Inertia
-import { Link } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 // ** Layouts
 import UserLayout from '@/layouts/UserLayout.vue';
@@ -11,6 +11,8 @@ import CardList from '@/components/ui/CardList.vue';
 </script>
 
 <template>
+    <Head title="Planos Nutricionais" />
+
     <UserLayout title="Planos Nutricionais" redirectBack="true">
         <main class="container mx-auto px-6 py-10 xl:px-[135px] xl:py-[72px]">
             <div class="mb-4 text-center text-graphite">

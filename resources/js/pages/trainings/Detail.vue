@@ -1,6 +1,6 @@
 <script setup>
 // ** Inertia
-import { usePage } from '@inertiajs/vue3';
+import { Head, usePage } from '@inertiajs/vue3';
 
 // ** Layouts
 import UserLayout from '@/layouts/UserLayout.vue';
@@ -20,6 +20,8 @@ const { data: training } = page.props.data;
 </script>
 
 <template>
+    <Head title="Progresso" />
+
     <UserLayout title="Progresso" redirectBack="true">
         <main class="container mx-auto px-6 py-10 xl:px-[135px] xl:py-[72px]">
             <div class="mb-4 text-center text-graphite">

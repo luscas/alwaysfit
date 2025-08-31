@@ -1,6 +1,6 @@
 <script setup>
 // ** Inertia
-import { Link, router } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
 
 // ** Vue
 import { ref } from 'vue';
@@ -30,6 +30,8 @@ function toggleTraining(id) {
 </script>
 
 <template>
+    <Head title="Treinos" />
+
     <UserLayout title="Treinos" redirectBack="true">
         <main class="container mx-auto px-6 py-10 xl:px-[135px] xl:py-[72px]">
             <div class="mb-4 text-center text-graphite">

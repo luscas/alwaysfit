@@ -1,4 +1,6 @@
 <script setup>
+import { Head } from '@inertiajs/vue3';
+
 // ** Layouts
 import UserLayout from '@/layouts/UserLayout.vue';
 
@@ -7,6 +9,8 @@ import CardList from '@/components/ui/CardList.vue';
 </script>
 
 <template>
+    <Head title="Plano Nutricional" />
+
     <UserLayout title="Plano Nutricional" redirectBack="true">
         <main class="container mx-auto px-6 py-10 xl:px-[135px] xl:py-[72px]">
             <div class="mb-4 text-center text-graphite">
