@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            \App\Services\Contracts\TrainingServiceInterface::class,
+            \App\Services\TrainingService::class
+        );
     }
 
     /**
