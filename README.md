@@ -1,5 +1,14 @@
 # AlwaysFit
 
+![Login](./screenshots/login.png)
+![Erro de Login](./screenshots/login-error.png)
+![Dashboard](./screenshots/dashboard.png)
+![Treinos](./screenshots/treinos.png)
+![Detalhes dos Treinos](./screenshots/treinos-detalhes.png)
+![Planos Nutricionais](./screenshots/planos-nutricionais.png)
+![Detalhes dos Planos Nutricionais](./screenshots/planos-nutricionais-detalhes.png)
+![Progresso](./screenshots/progresso.png)
+
 ## Manual de Configuração e Execução do Projeto
 
 Siga os passos abaixo para configurar e executar o projeto:
@@ -57,6 +66,5 @@ sail test
 ```
 
 ---
-
 
 ⛏️ Lucas Paz ([eu@lucaspaz.com](mailto:eu@lucaspaz.com))
