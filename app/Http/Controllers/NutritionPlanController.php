@@ -11,13 +11,17 @@ class NutritionPlanController extends Controller
     {
         $data = auth()->user()->nutritionPlans()->get();
 
-        dd($data);
+        return Inertia::render('nutrition-plans/List', [
+            'data' => $data
+        ]);
     }
 
     public function show(NutritionPlan $nutritionPlan)
     {
         $this->authorize('view', $nutritionPlan);
 
-        dd($nutritionPlan);
+        return Inertia::render('nutrition-plans/Detail', [
+            'data' => $nutritionPlan
+        ]);
     }
 }
