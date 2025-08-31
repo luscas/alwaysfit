@@ -7,6 +7,12 @@
         "laravel",
         "framework"
     ],
+    "authors": [
+        {
+            "name": "Lucas Paz",
+            "email": "eu@lucaspaz.com"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
