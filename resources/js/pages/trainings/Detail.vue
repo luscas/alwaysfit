@@ -22,7 +22,7 @@ const { data: training } = page.props.data;
 <template>
     <UserLayout title="Progresso" redirectBack="true">
         <main class="container mx-auto px-6 py-10 xl:px-[135px] xl:py-[72px]">
-            <div class="mb-4 text-center text-[#60E70]">
+            <div class="mb-4 text-center text-graphite">
                 <div class="text-2xl font-semibold">Progresso dos seus treinos</div>
             </div>
 

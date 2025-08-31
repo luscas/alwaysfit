@@ -32,7 +32,7 @@ function toggleTraining(id) {
 <template>
     <UserLayout title="Treinos" redirectBack="true">
         <main class="container mx-auto px-6 py-10 xl:px-[135px] xl:py-[72px]">
-            <div class="mb-4 text-center text-[#60E70]">
+            <div class="mb-4 text-center text-graphite">
                 <div class="text-2xl font-semibold">Seus treinos de hoje</div>
                 <div class="font-semibold">Membros superiores</div>
             </div>

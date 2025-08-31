@@ -25,7 +25,7 @@ class TrainingController extends Controller
                              ->pending()
                              ->get();
 
-        return Inertia::render('Trainings/List', [
+        return Inertia::render('trainings/List', [
             'data' => TrainingProgressResource::collection($trainings)->resolve()
         ]);
     }
@@ -38,7 +38,7 @@ class TrainingController extends Controller
             abort(404, 'Training not found');
         }
 
-        return Inertia::render('Trainings/Detail', [
+        return Inertia::render('trainings/Detail', [
             'data' => new TrainingProgressResource($training),
         ]);
     }
