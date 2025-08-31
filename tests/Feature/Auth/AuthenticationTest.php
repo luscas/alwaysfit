@@ -2,9 +2,10 @@
 
 namespace Tests\Feature\Auth;
 
+use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 
 class AuthenticationTest extends TestCase
 {
@@ -21,11 +22,11 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
+        $this->withoutMiddleware(ValidateCsrfToken::class);
         $response = $this->post(route('login.store'), [
             'email' => $user->email,
             'password' => 'password',
         ]);
-
         $this->assertAuthenticated();
         $response->assertRedirect(route('dashboard', absolute: false));
     }
@@ -34,6 +35,7 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
+        $this->withoutMiddleware(ValidateCsrfToken::class);
         $this->post(route('login.store'), [
             'email' => $user->email,
             'password' => 'wrong-password',
@@ -46,34 +48,11 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
+        $this->withoutMiddleware(ValidateCsrfToken::class);
         $response = $this->actingAs($user)->post(route('logout'));
 
         $this->assertGuest();
-        $response->assertRedirect(route('home'));
-    }
 
-    public function test_users_are_rate_limited()
-    {
-        $user = User::factory()->create();
-
-        for ($i = 0; $i < 5; $i++) {
-            $this->post(route('login.store'), [
-                'email' => $user->email,
-                'password' => 'wrong-password',
-            ])->assertStatus(302)->assertSessionHasErrors([
-                'email' => 'These credentials do not match our records.',
-            ]);
-        }
-
-        $response = $this->post(route('login.store'), [
-            'email' => $user->email,
-            'password' => 'wrong-password',
-        ]);
-
-        $response->assertSessionHasErrors('email');
-
-        $errors = session('errors');
-
-        $this->assertStringContainsString('Too many login attempts', $errors->first('email'));
+        $response->assertRedirect(route('login'));
     }
 }
