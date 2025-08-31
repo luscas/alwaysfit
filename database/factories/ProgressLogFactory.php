@@ -17,15 +17,8 @@ class ProgressLogFactory extends Factory
         return [
             'user_id' => User::factory(),
             'training_id' => Training::factory(),
-            'performed_at' => fake()->dateTimeBetween('-1 week', 'now'),
-            'status' => 'done',
+            'performed_at' => $this->faker->dateTimeThisMonth,
+            'status'       => $this->faker->randomElement(['done', 'skipped']),
         ];
-    }
-
-    public function thisWeek(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'performed_at' => fake()->dateTimeBetween(now()->startOfWeek(), now()),
-        ]);
     }
 }

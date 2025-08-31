@@ -16,14 +16,14 @@ class NutritionPlanFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'title' => fake()->sentence(3),
-            'description' => fake()->paragraph(),
+            'title' => $this->faker->sentence(3),
+            'description' => $this->faker->paragraph(),
             'start_date' => now()->toDateString(),
             'end_date' => null,
-            'calories' => fake()->numberBetween(1500, 3000),
-            'protein_g' => fake()->numberBetween(150, 200),
-            'carbs_g' => fake()->numberBetween(150, 250),
-            'fat_g' => fake()->numberBetween(50, 100),
+            'calories' => $this->faker->numberBetween(1500, 3000),
+            'protein_g' => $this->faker->numberBetween(150, 200),
+            'carbs_g' => $this->faker->numberBetween(150, 250),
+            'fat_g' => $this->faker->numberBetween(50, 100),
             'created_at' => now(),
             'updated_at' => now(),
         ];

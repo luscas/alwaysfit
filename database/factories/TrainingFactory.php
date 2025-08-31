@@ -15,11 +15,11 @@ class TrainingFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'           => fake()->sentence(3),
-            'image'           => fake()->imageUrl(300, 200, 'sports'),
+            'title'           => $this->faker->sentence(3),
+            'image'           => $this->faker->imageUrl(300, 200, 'sports'),
             'level'           => 'beginner',
             'is_done'         => false,
-            'target_per_week' => fake()->numberBetween(1, 7),
+            'target_per_week' => $this->faker->numberBetween(1, 7),
             'exercise_id'     => Exercise::factory(),
             'user_id'         => User    ::factory(),
         ];

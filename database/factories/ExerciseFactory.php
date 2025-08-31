@@ -15,9 +15,9 @@ class ExerciseFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(3),
-            'image' => fake()->imageUrl(300, 200, 'sports'),
-            'description' => fake()->paragraph(),
+            'title' => $this->faker->sentence(3),
+            'image' => $this->faker->imageUrl(300, 200, 'sports'),
+            'description' => $this->faker->paragraph(),
         ];
     }
 }
