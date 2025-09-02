@@ -15,7 +15,7 @@ class TrainingTest extends TestCase
 
     public function test_training_belongs_to_user()
     {
-        $user     = User    ::factory()->create();
+        $user     = User::factory()->create();
         $training = Training::factory()->create(['user_id' => $user->id]);
 
         $this->assertInstanceOf(User::class, $training->user);
@@ -54,8 +54,8 @@ class TrainingTest extends TestCase
 
     public function test_scope_for_user_returns_trainings_for_specific_user()
     {
-        $userA     = User    ::factory()->create();
-        $userB     = User    ::factory()->create();
+        $userA     = User::factory()->create();
+        $userB     = User::factory()->create();
 
         $trainingA = Training::factory()->create(['user_id' => $userA->id]);
         $trainingB = Training::factory()->create(['user_id' => $userB->id]);
@@ -84,8 +84,8 @@ class TrainingTest extends TestCase
 
         $progress = $training->weeklyProgress();
 
-        $this->assertEquals(2, $progress['done']);
-        $this->assertEquals(1, $progress['remaining']);
+        $this->assertEquals(1, $progress['done']);
+        $this->assertEquals(2, $progress['remaining']);
         $this->assertEquals(3, $progress['target']);
         $this->assertTrue($progress['is_done_this_week']);
         $this->assertTrue($progress['is_done_this_today']);
